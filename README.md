@@ -29,12 +29,18 @@ Implementación de un modelo de comunicación Publisher-Subscriber donde un serv
 
 ## Instalación
 
-1. Clonar o descargar el repositorio
-2. Asegurarse de tener Python 3.7+ instalado
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/D4N911/Publisher_Suscriber.git
+cd Publisher_Suscriber
+```
 
+2. Verificar que tienes Python 3.7+ instalado:
 ```bash
 python3 --version
 ```
+
+No se requieren dependencias adicionales, el proyecto usa solo librerías estándar de Python.
 
 ## Uso
 
@@ -66,17 +72,7 @@ python3 server_integrated.py --criterio ponderado --host localhost --port 8888
 
 En terminales separadas o usando el script de ejecución múltiple:
 
-#### Opción A: Script de inicio rápido (recomendado)
-
-```bash
-# Inicia servidor y clientes automáticamente
-./inicio_rapido.sh [criterio] [num_clientes]
-
-# Ejemplo:
-./inicio_rapido.sh ponderado 5
-```
-
-#### Opción B: Ejecutar clientes individualmente
+#### Opción A: Ejecutar clientes individualmente
 
 ```bash
 # Terminal 1
@@ -89,7 +85,7 @@ python3 client_integrated.py --id cliente_2
 python3 client_integrated.py --id cliente_3
 ```
 
-#### Opción C: Ejecutar múltiples clientes automáticamente
+#### Opción B: Ejecutar múltiples clientes automáticamente
 
 ```bash
 python3 run_clients.py --num-clientes 5
@@ -116,13 +112,7 @@ Los clientes mostrarán:
 
 ## Ejemplo de Ejecución Completa
 
-### Opción 1: Script de inicio rápido (más fácil)
-
-```bash
-./inicio_rapido.sh ponderado 5
-```
-
-### Opción 2: Manual (dos terminales)
+### Ejecución Manual (dos terminales)
 
 ```bash
 # Terminal 1: Iniciar servidor
@@ -132,29 +122,29 @@ python3 server_integrated.py --criterio ponderado
 python3 run_clients.py --num-clientes 5
 ```
 
-### Opción 3: Prueba rápida (1000 resultados)
+### Ejecución con Clientes Individuales
 
 ```bash
-python3 test_rapido.py --criterio aleatorio --num-clientes 3
+# Terminal 1: Iniciar servidor
+python3 server_integrated.py --criterio ponderado
+
+# Terminales 2, 3, 4...: Iniciar clientes individuales
+python3 client_integrated.py --id cliente_1
+python3 client_integrated.py --id cliente_2
+python3 client_integrated.py --id cliente_3
 ```
 
 ## Estructura del Proyecto
 
 ```
 Publisher-Suscriber/
-├── server_integrated.py      # Servidor Publisher (principal)
-├── client_integrated.py       # Cliente Subscriber (principal)
+├── server_integrated.py      # Servidor Publisher
+├── client_integrated.py      # Cliente Subscriber
 ├── run_clients.py            # Script para ejecutar múltiples clientes
-├── test_rapido.py            # Script de prueba rápida (1000 resultados)
-├── demo.py                   # Script de demostración
-├── inicio_rapido.sh          # Script bash de inicio rápido
-├── server.py                 # Versión alternativa del servidor
-├── client.py                 # Versión alternativa del cliente
 ├── requirements.txt          # Dependencias (vacío, solo stdlib)
 ├── README.md                 # Este archivo
 ├── DOCUMENTACION.md          # Documentación técnica detallada
 ├── DIAGRAMAS.md              # Diagramas de arquitectura
-├── ENTREGABLES.md            # Lista de entregables
 └── .gitignore                # Archivos a ignorar en git
 ```
 
@@ -215,22 +205,15 @@ Cliente cliente_2:
 ================================================================================
 ```
 
-## ⏱️ Tiempo Estimado de Ejecución
+## Tiempo Estimado de Ejecución
 
-Para alcanzar **1,000,000 de resultados**:
+Para alcanzar 1,000,000 de resultados:
 
-- **Con 5 clientes (por defecto)**: ~5-15 minutos
-- **Con 10 clientes**: ~3-8 minutos
-- **Con 20 clientes**: ~2-5 minutos
+- Con 5 clientes (por defecto): ~5-15 minutos
+- Con 10 clientes: ~3-8 minutos
+- Con 20 clientes: ~2-5 minutos
 
-*El tiempo varía según el hardware y carga del sistema.*
-
-**Para pruebas rápidas**, usa el script de prueba:
-```bash
-python3 test_rapido.py --criterio aleatorio --num-clientes 5 --objetivo 1000
-```
-
-Ver `TIEMPO_ESTIMADO.md` para más detalles.
+El tiempo varía según el hardware y carga del sistema.
 
 ## Notas Técnicas
 
@@ -264,9 +247,9 @@ Para más detalles sobre:
 - Diagramas de arquitectura
 - Casos de aplicación
 
-Ver `DOCUMENTACION.md`
+Ver `DOCUMENTACION.md` y `DIAGRAMAS.md`
 
-## Licencia
+## Repositorio
 
-Este proyecto es de código abierto y está disponible para uso educativo.
-
+Este proyecto está disponible en GitHub:
+https://github.com/D4N911/Publisher_Suscriber
